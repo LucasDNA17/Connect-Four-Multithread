@@ -7,7 +7,7 @@
 extern int N_bots;
 
 void inicializa_jogadores();
-bool venceu(int linha, int coluna);
+bool venceu(int linha, int coluna, char symbol);
 void jogador();
 void bot(int index);
 

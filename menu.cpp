@@ -5,7 +5,9 @@
 
 using namespace std;
 
-
+/**
+ * Menu inicial.
+ */
 void desenha_menu() 
 {
     cout << "\n";
@@ -20,7 +22,10 @@ void desenha_menu()
     cout << "\n";
 }
 
-
+/**
+ * Recupera quantidade de bots digitada pelo jogador.
+ * Verifica se está dentro do limite permitido (1-5).
+ */
 int quantidade_bots()
 {
     int n_bots;
