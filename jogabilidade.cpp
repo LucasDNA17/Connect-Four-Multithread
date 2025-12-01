@@ -4,8 +4,7 @@
 #include <thread>
 #include <semaphore>
 #include <vector>
-#include <cstdlib> 
-#include <ctime>
+#include <random>
 
 using namespace std;
 
@@ -199,14 +198,19 @@ void bot(int index)
 
         cout << "\n     **VEZ DO BOT " << index + 1 << "**\n" << endl;
 
-        // Seed rand
-        srand(time(0) + index);
+        //Seed para a escolha aleatória da coluna
+        unsigned int seed = chrono::system_clock::now().time_since_epoch().count();
+        mt19937 gen(seed + index);
+        uniform_int_distribution<int> distrib(0, N_colunas - 1);
+
         int coluna;
         do
         {
             // Escolhe uma coluna
-            coluna = rand() % N_colunas;
+            coluna = distrib(gen);
         }while(coluna_cheia(coluna));
+
+        
         cout << "Bot " << index + 1 << " escolheu a coluna " << coluna + 1 << "\n" << endl;
 
        
